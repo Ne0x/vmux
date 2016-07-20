@@ -146,7 +146,7 @@ app.post '/s/:evt/:id', authenticate, (req, res) ->
 app.get '/sse/:res', authenticate, (req, res) ->
   console.log "[SSE] #{req.params.res}"
 
-  req.socket.setTimeout(Infinity);
+  req.socket.setTimeout(1000*60*60*24*365);
   res.writeHead 200, 
     'Content-Type'  : 'text/event-stream'
     'Cache-Control' : 'no-cache'
