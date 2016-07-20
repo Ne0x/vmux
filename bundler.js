@@ -107,7 +107,7 @@ Bundler.prototype.packTemplates = function() {
   var jade = require('gulp-jade');
   var compiler    = require('gulp-hogan-compile');
 
-  fn = function(file) { return file.relative.replace('.html', ''); }
+  fn = function(file) { return file.relative.replace('.html', '').replace('\\','/'); }
 
   return gulp.src(this.paths.templates)
     .pipe(jade())
